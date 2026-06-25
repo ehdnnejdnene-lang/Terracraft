@@ -3,6 +3,7 @@ title = Terracraft
 package.name = terracraft
 package.domain = org.test
 source.include_exts = py,png,jpg,kv,atlas
+source.dir = .
 version = 0.1
 requirements = python3,pygame
 orientation = portrait

@@ -13,15 +13,9 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Build with Buildozer
-        env:
-          BUILDOZER_ALLOW_ROOT: 1
         run: |
-          # Принудительно переходим в рабочую директорию
-          cd $GITHUB_WORKSPACE
-          # Проверяем, что файлы на месте
-          ls -la
-          # Запускаем сборку
-          buildozer android debug
+          # Прямой запуск без проверок прав и без лишних вопросов
+          buildozer --no-check-root android debug
           
       - name: Upload APK
         uses: actions/upload-artifact@v4

@@ -8,18 +8,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: kivy/buildozer
+      image: kivy/buildozer:latest
     steps:
       - uses: actions/checkout@v4
       
-            - name: Build with Buildozer
+      - name: Build with Buildozer
         env:
           BUILDOZER_ALLOW_ROOT: 1
         run: |
-          buildozer android debug
-
-        run: |
-          export BUILDOZER_ALLOW_ROOT=1
+          # Принудительно переходим в рабочую директорию
+          cd $GITHUB_WORKSPACE
+          # Проверяем, что файлы на месте
+          ls -la
+          # Запускаем сборку
           buildozer android debug
           
       - name: Upload APK

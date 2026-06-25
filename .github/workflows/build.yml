@@ -12,7 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Build with Buildozer
+            - name: Build with Buildozer
+        env:
+          BUILDOZER_ALLOW_ROOT: 1
+        run: |
+          buildozer android debug
+
         run: |
           export BUILDOZER_ALLOW_ROOT=1
           buildozer android debug

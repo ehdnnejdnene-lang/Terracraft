@@ -14,8 +14,6 @@ jobs:
       
       - name: Build with Buildozer
         run: |
-          # Исправляем права доступа для пользователя
-          chown -R user:user .
           buildozer android debug
           
       - name: Upload APK

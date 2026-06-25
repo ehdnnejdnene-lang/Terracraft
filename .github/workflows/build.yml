@@ -13,8 +13,13 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Build with Buildozer
+        env:
+          # Отключаем интерактивные запросы buildozer
+          BUILDOZER_ALLOW_ROOT: 1
+          # Подавляем все попытки ввода данных
+          PYTHONUNBUFFERED: 1
         run: |
-          # Прямой запуск без проверок прав и без лишних вопросов
+          # Используем --no-check-root и немедленно запускаем сборку
           buildozer --no-check-root android debug
           
       - name: Upload APK
